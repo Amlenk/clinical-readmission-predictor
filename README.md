@@ -15,16 +15,16 @@ Predicting 30-day hospital readmissions is a key quality and efficiency indicato
 ### A. Preprocessing & Advanced Feature Engineering
 In clinical datasets, raw counts do not always reflect underlying care intensity. To capture clinical severity relative to duration of stay, we engineered four domain-specific features *prior* to normalization:
 1.  **Medication Intensity (`medications_per_day`)**: 
-    $$\text{Medication Intensity} = \frac{n_{\text{medications}}}{\text{time\_in\_hospital} + 1}$$
+    $$\text{Medication Intensity} = \frac{\text{Medications}}{\text{Time in Hospital} + 1}$$
     Identifies if a patient is receiving high volumes of pharmacological treatments per day, signaling acute medical episodes.
 2.  **Laboratory Density (`lab_tests_per_day`)**: 
-    $$\text{Lab Density} = \frac{n_{\text{lab\_procedures}}}{\text{time\_in\_hospital} + 1}$$
+    $$\text{Lab Density} = \frac{\text{Lab Procedures}}{\text{Time in Hospital} + 1}$$
     Measures daily diagnostic tracking, reflecting clinical monitoring requirements.
 3.  **Healthcare Utilization Index (`healthcare_utilization`)**: 
-    $$\text{Utilization} = n_{\text{outpatient}} + n_{\text{inpatient}} + n_{\text{emergency}}$$
+    $$\text{Utilization} = \text{Outpatient} + \text{Inpatient} + \text{Emergency}$$
     A single aggregated index tracking the patient's utilization history in the preceding year.
 4.  **Stay-to-Medication Ratio (`stay_to_medication_ratio`)**: 
-    $$\text{Stay-to-Medication} = \frac{\text{time\_in\_hospital}}{n_{\text{medications}} + 1}$$
+    $$\text{Stay-to-Medication} = \frac{\text{Time in Hospital}}{\text{Medications} + 1}$$
     Identifies instances of prolonged stays with minimal therapeutic escalation.
 
 By performing this feature engineering **before** standard scaling, we preserved the mathematical meaning of the ratios and prevented zero-division or negative-ratio anomalies. All numerical features were subsequently normalized using a fitted `StandardScaler`.
