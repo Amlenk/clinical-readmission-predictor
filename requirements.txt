@@ -1,0 +1,19 @@
+# Core Data Science and ML
+pandas>=1.4.0
+numpy>=1.23
+scikit-learn>=1.0.0
+joblib>=1.3.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+
+# Deep Learning (Keras 3 with PyTorch Backend)
+keras>=3.0.0
+torch>=2.0.0
+
+# Optimization & Tuning
+optuna>=3.0.0
+keras-tuner>=1.4.0
+
+# Explainability & App Deployment
+shap>=0.40.0
+streamlit>=1.30.0
