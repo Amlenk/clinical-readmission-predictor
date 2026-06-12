@@ -2,3 +2,5 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 tuning_results/
+full_optuna_run.log
+optuna_study.db
